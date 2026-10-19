@@ -108,7 +108,7 @@ app.put('/biodata/:id', (req, res) => {
             });
         }
 
-        res.json({
+        res.status(200).json({
             message: "Data berhasil diupdate",
             data: result.rows[0]
         });
@@ -144,6 +144,10 @@ app.delete('/biodata/:id', (req, res) => {
         res.status(500).send('Internal Server Error');
     });
 });
+
+app.use((req, res) => {
+    res.status(404).json({ message: 'Rute tidak ditemukan' })
+})
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`);
