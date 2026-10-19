@@ -91,6 +91,12 @@ app.put('/biodata/:id', (req, res) => {
     const { id } = req.params;
     const { nama, nim, kelas } = req.body;
 
+    if (!nama || !nim || !kelas) {
+        return res.status(400).json({
+            message: 'nama, nim, dan kelas wajib diisi',
+        })
+    }
+
     pool.query(
         'UPDATE biodata SET nama=$1, nim=$2, kelas=$3 WHERE id=$4 RETURNING *',
         [nama, nim, kelas, id]
