@@ -19,6 +19,10 @@ const pool = new Pool({
     port: Number(process.env.PGPORT) || 5432,
 })
 
+pool.on('error', (err) => {
+    console.error('Kesalahan koneksi PostgreSQL:', err)
+})
+
 // GET ALL
 app.get('/', (req, res) => {
     console.log("TEST DATA :");
