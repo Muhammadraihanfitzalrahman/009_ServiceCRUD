@@ -47,6 +47,24 @@ const getAllBiodata = async (req, res) => {
 app.get('/', getAllBiodata)
 app.get('/biodata', getAllBiodata)
 
+app.get('/biodata/:id', async (req, res) => {
+    try {
+        const result = await pool.query(
+            'SELECT * FROM biodata WHERE id=$1',
+            [req.params.id]
+        )
+
+        if (result.rowCount === 0) {
+            return res.status(404).json({ message: 'Data tidak ditemukan' })
+        }
+
+        res.json(result.rows[0])
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('Internal Server Error')
+    }
+})
+
 // POST (Tambah Data)
 app.post('/biodata', (req, res) => {
     const { id, nama, nim, kelas } = req.body;
