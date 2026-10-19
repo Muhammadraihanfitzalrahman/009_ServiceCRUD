@@ -1,17 +1,12 @@
-# Layanan CRUD Biodata
+# SS GET
 
-API sederhana untuk mengelola data biodata menggunakan Express dan PostgreSQL.
+<img width="959" height="539" alt="Cuplikan layar 2026-10-19 104459" src="https://github.com/user-attachments/assets/9bcd6673-0d3c-4f1d-90f6-f52d2bf1763f" />
+# SS POST
 
-## Persyaratan
+<img width="959" height="539" alt="Cuplikan layar 2026-10-19 113106" src="https://github.com/user-attachments/assets/a147b6f5-5d8e-42de-be2e-88034c0b6781" />
+# SS PUT
 
-- Node.js
-- PostgreSQL
+<img width="959" height="539" alt="Cuplikan layar 2026-10-19 113156" src="https://github.com/user-attachments/assets/de39dfcd-9820-4537-b533-0439c50a4edf" />
+# SS DELET
 
-## Menjalankan aplikasi
-
-1. Pasang dependensi dengan `npm install`.
-2. Buat tabel biodata dengan menjalankan `database.sql` pada database yang digunakan.
-3. Salin `.env.example` menjadi `.env`, lalu sesuaikan konfigurasi PostgreSQL.
-4. Atur variabel lingkungan dari `.env` pada shell, kemudian jalankan `npm start`.
-
-Variabel `.env` tidak dibaca otomatis oleh aplikasi. Atur nilainya pada lingkungan proses sebelum menjalankan aplikasi.
+<img width="959" height="539" alt="Cuplikan layar 2026-10-19 113229" src="https://github.com/user-attachments/assets/eb761344-6a45-4432-9aab-a773e4bc0150" />
