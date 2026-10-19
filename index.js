@@ -23,6 +23,16 @@ pool.on('error', (err) => {
     console.error('Kesalahan koneksi PostgreSQL:', err)
 })
 
+app.get('/health', async (req, res) => {
+    try {
+        await pool.query('SELECT 1')
+        res.json({ status: 'ok' })
+    } catch (err) {
+        console.error(err)
+        res.status(500).json({ status: 'error' })
+    }
+})
+
 // GET ALL
 app.get('/', (req, res) => {
     console.log("TEST DATA :");
