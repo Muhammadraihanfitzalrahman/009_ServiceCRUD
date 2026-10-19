@@ -69,6 +69,12 @@ app.get('/biodata/:id', async (req, res) => {
 app.post('/biodata', (req, res) => {
     const { id, nama, nim, kelas } = req.body;
 
+    if (!id || !nama || !nim || !kelas) {
+        return res.status(400).json({
+            message: 'id, nama, nim, dan kelas wajib diisi',
+        })
+    }
+
     pool.query(
         'INSERT INTO biodata (id, nama, nim, kelas) VALUES ($1, $2, $3, $4) RETURNING *',
         [id, nama, nim, kelas]
