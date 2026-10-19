@@ -12,11 +12,11 @@ app.use(
 )
 
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'mahasiswa',
+    user: process.env.PGUSER || 'postgres',
+    host: process.env.PGHOST || 'localhost',
+    database: process.env.PGDATABASE || 'mahasiswa',
     password: process.env.PGPASSWORD,
-    port: 5432,
+    port: Number(process.env.PGPORT) || 5432,
 })
 
 // GET ALL
