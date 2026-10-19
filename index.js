@@ -34,18 +34,18 @@ app.get('/health', async (req, res) => {
 })
 
 // GET ALL
-app.get('/', (req, res) => {
-    console.log("TEST DATA :");
+const getAllBiodata = async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM biodata ORDER BY id')
+        res.json(result.rows)
+    } catch (err) {
+        console.error(err)
+        res.status(500).send('Internal Server Error')
+    }
+}
 
-    pool.query('SELECT * FROM biodata ORDER BY id')
-        .then((result) => {
-            res.send(result.rows);
-        })
-        .catch(err => {
-            console.error(err);
-            res.status(500).send('Internal Server Error');
-        });
-});
+app.get('/', getAllBiodata)
+app.get('/biodata', getAllBiodata)
 
 // POST (Tambah Data)
 app.post('/biodata', (req, res) => {
