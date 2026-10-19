@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS biodata (
+    id INTEGER PRIMARY KEY,
+    nama TEXT NOT NULL,
+    nim TEXT NOT NULL,
+    kelas TEXT NOT NULL
+);
